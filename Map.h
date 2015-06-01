@@ -19,6 +19,7 @@ public:
     Tile * get_tile(int x, int y);
     int get_maxx();
     int get_maxy();
+    void make_room(int x, int y, int width, int height);
     
 private:
     std::vector< std::vector<Tile*> > _tile;

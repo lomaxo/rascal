@@ -38,11 +38,7 @@ int main(int argc, const char * argv[]) {
     Map * map = new Map(map_maxx, map_maxy);
 
     // Set up a room in the centre
-    for (int mx = map_maxx/2 -5 ; mx < map_maxx /2 +5; mx++) {
-        for (int my = map_maxy/2-5; my < map_maxy/2+5; my++) {
-            map->get_tile(mx, my)->set_blocking(false);
-        }
-    }
+    map->make_room(map_maxx/2-5, map_maxy/2-5, 10, 10);
     
     char ch;
     

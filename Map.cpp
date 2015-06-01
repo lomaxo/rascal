@@ -31,3 +31,12 @@ int Map::get_maxy() {
     return _tile.size();
     
 }
+
+void Map::make_room(int x, int y, int width, int height) {
+    for (int mx = x; mx < x+ width; mx++) {
+        for (int my = y; my < y+width; my++) {
+            _tile[my][mx]->set_blocking(false);
+        }
+    }
+
+}
