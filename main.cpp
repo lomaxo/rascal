@@ -12,6 +12,7 @@
 #include "Tile.h"
 #include "Player.h"
 #include "Map.h"
+#include "MessageHandler.h"
 
 int main(int argc, const char * argv[]) {
 
@@ -27,6 +28,8 @@ int main(int argc, const char * argv[]) {
     
     int view_x, view_y;
     getmaxyx(view_win, view_y, view_x);
+    
+    MessageHandler msg_handler(msg_win);
     
     // Create the player and put them in the centre
     Player player;
@@ -44,7 +47,10 @@ int main(int argc, const char * argv[]) {
     
     // Enter the main loop
     while (ch != 'Q') {
-        mvwprintw(msg_win, 0, 0, "key pressed %c %i %i", ch, map->get_maxx(), map->get_maxy());
+        //mvwprintw(msg_win, 0, 0, "key pressed %c %i %i", ch, map->get_maxx(), map->get_maxy());
+        std::string s = "Hello";
+        s.append(" test");
+        msg_handler.msg(s);
         int step_x =0 , step_y =0;
         switch (ch) {
             case 'h':
