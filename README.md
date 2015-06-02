@@ -1,1 +1,3 @@
-# rascal
+# Rascal
+
+A very simple roguelike.
