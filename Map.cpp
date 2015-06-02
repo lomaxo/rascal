@@ -10,6 +10,11 @@
 #include <cstdlib>
 #include <algorithm>    // std::max
 #include <iostream>
+#include "MessageHandler.h"
+
+
+extern MessageHandler msg_handler;
+
 using namespace std;
 
 Room::Room(int width, int height, int x, int y) {
@@ -95,6 +100,7 @@ void Map::make_tunnel(int start_x, int start_y, int end_x, int end_y) {
 
 void Map::create_level() {
     srand(2);
+    msg_handler.msg("Hello, is this working?");
     //make_room(_width/2-5, _height/2-5, 10, 10);
     //make_tunnel(_width/2, _height/2, 2, 2);
     int last_x=_width/2;

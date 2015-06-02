@@ -12,7 +12,23 @@ MessageHandler::MessageHandler(WINDOW * win) {
     _win = win;
 }
 
+MessageHandler::MessageHandler() {
+    
+}
+
+void MessageHandler::init(WINDOW * win) {
+    _win = win;
+}
+
 
 void MessageHandler::msg(std::string str) {
-    mvwprintw(_win, 0, 0, str.c_str());
+    _msg_list.push_back(str);
+    wclear(_win);
+    std::vector<std::string>::reverse_iterator it;
+    int i = 10;
+    for (it = _msg_list.rbegin(); it < _msg_list.rend(); it++) {
+        mvwprintw(_win, i, 0, it->c_str());
+        i--;
+    }
+    wrefresh(_win);
 }

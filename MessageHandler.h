@@ -15,11 +15,13 @@
 #include <string>
 
 class MessageHandler {
-    std::vector<std::string> msg_list;
+    std::vector<std::string> _msg_list;
     WINDOW * _win;
 
 public:
     MessageHandler(WINDOW * win);
+    MessageHandler();
+    void init(WINDOW * win);
     void msg(std::string);
 };
 

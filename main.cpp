@@ -14,6 +14,8 @@
 #include "Map.h"
 #include "MessageHandler.h"
 
+MessageHandler msg_handler;
+
 int main(int argc, const char * argv[]) {
 
     // Set up the curses windows
@@ -29,7 +31,7 @@ int main(int argc, const char * argv[]) {
     int view_x, view_y;
     getmaxyx(view_win, view_y, view_x);
     
-    MessageHandler msg_handler(msg_win);
+    msg_handler.init(msg_win);
     
     // Create the player and put them in the centre
     Player player;
@@ -48,8 +50,9 @@ int main(int argc, const char * argv[]) {
     // Enter the main loop
     while (ch != 'Q') {
         //mvwprintw(msg_win, 0, 0, "key pressed %c %i %i", ch, map->get_maxx(), map->get_maxy());
-        std::string s = "Hello";
-        s.append(" test");
+        std::string s = "Pressed: ";
+        s = s + ch;
+        //s.append(std::str(ch));
         msg_handler.msg(s);
         int step_x =0 , step_y =0;
         switch (ch) {
@@ -102,7 +105,7 @@ int main(int argc, const char * argv[]) {
         // Draw the player and update the windows
         mvwaddch(view_win, player.y(), player.x(), player.ch());
         wrefresh(view_win);
-        wrefresh(msg_win);
+        //wrefresh(msg_win);
         
         // Wait for next input
         ch = getch();
