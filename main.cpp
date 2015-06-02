@@ -38,8 +38,8 @@ int main(int argc, const char * argv[]) {
     Map * map = new Map(map_maxx, map_maxy);
 
     // Set up a room in the centre
-    map->make_room(map_maxx/2-5, map_maxy/2-5, 10, 10);
-    
+    //map->make_room(map_maxx/2-5, map_maxy/2-5, 10, 10);
+    map->create_level();
     char ch;
     
     // Enter the main loop

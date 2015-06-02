@@ -20,9 +20,14 @@ public:
     int get_maxx();
     int get_maxy();
     void make_room(int x, int y, int width, int height);
+    void create_level();
+    void make_tunnel(int start_x, int start_y, int end_x, int end_y);
+    void make_h_tunnel(int start_x, int end_x, int y);
+    void make_v_tunnel(int start_y, int end_y, int x);
     
 private:
     std::vector< std::vector<Tile*> > _tile;
+    int _width, _height;
     
     
 };
