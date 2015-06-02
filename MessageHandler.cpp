@@ -25,7 +25,7 @@ void MessageHandler::msg(std::string str) {
     _msg_list.push_back(str);
     wclear(_win);
     std::vector<std::string>::reverse_iterator it;
-    int i = 10;
+    int i = 9;
     for (it = _msg_list.rbegin(); it < _msg_list.rend(); it++) {
         mvwprintw(_win, i, 0, it->c_str());
         i--;

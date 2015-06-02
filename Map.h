@@ -14,11 +14,12 @@
 #include <vector>
 
 class Room {
+public:
     int _width, _height, _x, _y, _end_x, _end_y;
     
 public:
     Room(int width, int height, int x, int y);
-    bool overlaps(Room other_room);
+    bool overlaps(Room * other_room);
     
 };
 
